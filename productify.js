@@ -19,4 +19,5 @@ function productify(arr) {
     return arr.map((ele) => product / ele);
 }
 
-console.log(productify([1,2,3]))
+console.log(productify([1,2,3]));
+console.log(productify([3,4,5]));
