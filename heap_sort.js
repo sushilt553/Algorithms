@@ -83,9 +83,16 @@ function heapSort(arr) {
 
 function heapSort(arr) {
 
-    
+    for (let i = arr.length - 1; i >= 0; i--) {
+        heapify(arr, arr.length, i);
+    }
 
-}
+    for (let endOfHeap = arr.length - 1; endOfHeap >= 0; endOfHeap--) {
+        swap(arr, endOfHeap, 0);
+        heapify(arr, endOfHeap, 0);
+    }
+    return arr;
+}   
 
 function heapify(arr, n, idx) {
     let leftIdx = 2 * idx + 1;
