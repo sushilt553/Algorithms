@@ -79,5 +79,39 @@ function heapSort(arr) {
     return sortedArr;
 }
 
+//InPlace Heap Sort
+
+function heapSort(arr) {
+
+    
+}
+
+function heapify(arr, n, idx) {
+    let leftIdx = 2 * idx + 1;
+    let rightIdx = 2 * idx + 2;
+    let leftValue = arr[leftIdx];
+    let rightValue = arr[rightIdx];
+
+    if (leftIdx >= n) leftValue = -Infinity;
+    if (rightIdx >= n) rightValue = -Infinity;
+
+    if (arr[idx] > leftValue && arr[idx] > rightValue) return;
+
+    let swapIdx;
+    if (leftValue > rightValue) {
+        swapIdx = leftIdx;
+    }else{
+        swapIdx = rightIdx;
+    }
+    swap(arr, idx, swapIdx);
+    heapify(arr, n, swapIdx);    
+}
+
+function swap(arr, i1, i2) {
+    let temp = arr[i1];
+    arr[i1] = arr[i2];
+    arr[i2] = temp;
+}
+
 console.log(heapSort([12,11,1,13,14,2]));
 
