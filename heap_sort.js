@@ -1,9 +1,10 @@
+
 class MaxHeap {
     constructor() {
         this.root = [null]
     }
 
-    getParent(idx){
+    getParent(idx) {
         return Math.floor(idx / 2);
     }
 
@@ -26,7 +27,7 @@ class MaxHeap {
         }
     }
 
-    insert(val, root=this.root) {
+    insert(val, root = this.root) {
         root.push(val);
         this.siftUp(root.length - 1);
     }
@@ -45,7 +46,7 @@ class MaxHeap {
         let swapIdx;
         if (leftValue > rightValue) {
             swapIdx = leftIdx;
-        }else{
+        } else {
             swapIdx = rightIdx;
         }
 
@@ -67,16 +68,16 @@ class MaxHeap {
     }
 }
 
-let heap = new MaxHeap();
+function heapSort(arr) {
+    let heap = new MaxHeap();
+    let sortedArr = [];
+    arr.forEach((ele) => heap.insert(ele));
 
-heap.insert(12);
-heap.insert(9);
-heap.insert(13);
-heap.insert(14);
-heap.insert(6);
-heap.insert(3);
-heap.insert(16);
+    while (heap.root.length > 1) {
+        sortedArr.unshift(heap.deleteMax());    
+    }
+    return sortedArr;
+}
 
-console.log(heap.root);
-heap.deleteMax();
-console.log(heap.root);
+console.log(heapSort([12,11,1,13,14,2]));
+
