@@ -1,3 +1,5 @@
+require 'byebug';
+
 def common_subsets(arr1, arr2) 
     subs1 = subsets(arr1)
     subs2 = subsets(arr2)
@@ -9,6 +11,7 @@ end
 
 def subsets(arr)
     return [[]] if arr.empty? 
+    debugger
     first = arr[0]
     subset = subsets(arr.drop(1))
     new_subs = subset.map {|ele| ele + [first]}
