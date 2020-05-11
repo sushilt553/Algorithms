@@ -26,3 +26,19 @@ function sortArr1(arr, max) {
 
 // console.log(sortArr([5,3,4,1,2]));
 console.log(sortArr1([12,5,6,1,2], 12));
+
+function makeBuckets() {
+    return new Array(27).fill().map(() => new Array())
+}
+
+
+function maxLength(strings) {
+    let length = 0;
+
+    strings.forEach((str) => {
+        if (str.length > length) {
+            length = str.length;
+        }
+    })
+    return length;
+}
