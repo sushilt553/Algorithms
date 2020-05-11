@@ -8,6 +8,7 @@ function sortArr(arr) {
     return newArr;
 }
 
+//Counting Sort algorithm
 function sortArr1(arr, max) {
     let buckets = new Array(max + 1).fill(0);
 
