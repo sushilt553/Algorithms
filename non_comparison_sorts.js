@@ -42,3 +42,28 @@ function maxLength(strings) {
     })
     return length;
 }
+
+
+function sort3(arr) {
+    if (arr.length === 0) return arr;
+
+    let sortedArr = [];
+    let max = maxLength(arr);
+    let alphabet = "abcdefghijklmnopqrstuvwxyz"
+
+    for (let i = max - 1; i >= 0; i--) {
+        let buckets = makeBuckets();
+        for (let j = 0; j < arr.length; j++) {
+            if (arr[j].length > i) {
+                let char = arr[j][i];
+                let index = alphabet.indexOf(char) + 1;
+                buckets[index].push(arr[j]);
+            } else {
+                buckets[0].push(arr[j]);
+            }
+        }
+        sortedArr = [].concat(...buckets);
+    }
+
+    return sortedArr;
+}
