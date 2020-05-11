@@ -14,3 +14,4 @@ function lookAndSay(arr) {
 }
 
 console.log(lookAndSay([1]));
+console.log(lookAndSay([1, 2]));
