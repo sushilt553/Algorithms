@@ -9,9 +9,14 @@ function lookAndSay(arr) {
             j++;
         }
         newArr.push([count, arr[i]]);
+        if (j === arr.length) {
+            i = j;
+        }
     }
     return newArr;
 }
 
 console.log(lookAndSay([1]));
-console.log(lookAndSay([1, 2]));
+console.log(lookAndSay([1, 1]));
+console.log(lookAndSay([2, 1]));
+console.log(lookAndSay([1,2,1,1]));
