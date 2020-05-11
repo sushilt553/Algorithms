@@ -25,7 +25,10 @@ function whichMissing2(arr) {
 }
 
 function whichMissing3(arr) {
-
+    let sum = arr.reduce((acc, el) => acc + el);
+    
+    
+    return sum;
 }
 
 console.log(whichMissing1([4,2,1,5,0]));
