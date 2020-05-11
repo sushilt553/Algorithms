@@ -24,5 +24,10 @@ function whichMissing2(arr) {
     return max;
 }
 
+function whichMissing3(arr) {
+
+}
+
 console.log(whichMissing1([4,2,1,5,0]));
 console.log(whichMissing2([4,2,1,5,0]));
+console.log(whichMissing3([4,2,1,5,0]));
