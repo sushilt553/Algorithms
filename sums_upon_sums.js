@@ -25,12 +25,19 @@ function whichMissing2(arr) {
 }
 
 function whichMissing3(arr) {
-    let sum = arr.reduce((acc, el) => acc + el);
-    
-    
+    let sum = 0;
+    for (let i = 0; i <= arr.length; i++) {
+        sum += i
+    }
+
+    for (let i = 0; i < arr.length; i++) {
+        sum -= arr[i]
+    }
     return sum;
 }
 
 console.log(whichMissing1([4,2,1,5,0]));
 console.log(whichMissing2([4,2,1,5,0]));
 console.log(whichMissing3([4,2,1,5,0]));
+console.log(whichMissing3([4,2,1,5,3]));
+console.log(whichMissing3([0,2,1,5,3]));
