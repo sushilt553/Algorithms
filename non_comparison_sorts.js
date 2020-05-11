@@ -67,3 +67,34 @@ function sort3(arr) {
 
     return sortedArr;
 }
+
+
+//return random index of an array
+// probability
+// sum of array values
+// [4, 6, 8] index 0 returned 4 out of 18
+
+// index 1 returned 6 out of 18
+// index 2 returned 8 out of 18
+// O(n)
+// either 0, 1 or 2(random)
+
+// totalSum = 18;
+// 0, 1, 2, 3 => index 0  => 4 / 18
+// 4, 5, 6, 7, 8, 9 = index 1  => 6 / 18
+// 10, 11, 12, 13, 14, 15, 16, 17 = index 2 => 8 / 18
+
+function weightedRandomIndex(arr) {
+    let sum = 0;
+    arr.forEach((ele) => sum += ele);
+
+    let num = Math.floor(Math.random() * sum);
+
+    for (let i = 0; i < arr.length; i++) {
+        if (num < arr[i]) {
+            return i;
+        }
+    }
+    return arr.length - 1;
+}
+
