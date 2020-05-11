@@ -10,4 +10,19 @@ function whichMissing1(arr) {
     return arr.length;
 }
 
+function whichMissing2(arr) {
+    let max = Math.max(...arr);
+    let set = new Set();
+
+    for (let i = 0; i < arr.length; i++) {
+        set.add(arr[i]);
+    }
+
+    for (let i = 0; i <= max; i++) {
+        if (!set.has(i)) return i;
+    }
+    return max;
+}
+
 console.log(whichMissing1([4,2,1,5,0]));
+console.log(whichMissing2([4,2,1,5,0]));
