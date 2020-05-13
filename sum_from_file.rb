@@ -6,3 +6,5 @@ def sum_from_file(filename) {
 
     nums.inject(:+)
 }
+ 
+# This is a ruby solution for file read.
