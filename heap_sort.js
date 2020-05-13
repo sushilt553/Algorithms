@@ -121,5 +121,5 @@ function swap(arr, i1, i2) {
     arr[i2] = temp;
 }
 
-console.log(heapSort([12,11,1,13,14,2]));
+// console.log(heapSort([12,11,1,13,14,2]));
 
