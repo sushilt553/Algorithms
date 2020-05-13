@@ -44,10 +44,10 @@ class Trie {
     }
 }
 
-let trie = new Trie();
-trie.insert("tea");
-trie.insert("tear");
-trie.insert("taco");
+// let trie = new Trie();
+// trie.insert("tea");
+// trie.insert("tear");
+// trie.insert("taco");
 
-console.log(trie.search("tea"));
-console.log(trie.search("tac"));
+// console.log(trie.search("tea"));
+// console.log(trie.search("tac"));
