@@ -19,6 +19,7 @@
 //     }
 // }
 
+
 // function binarySearch(arr, target) {
 
 //     while (arr.length > 0) {
