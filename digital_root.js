@@ -18,7 +18,7 @@ function digitalRootSum(n) {
     return sum;
 }
 
-console.log(digitalRoot(9));
-console.log(digitalRoot(10));
-console.log(digitalRoot(12));
+// console.log(digitalRoot(9));
+// console.log(digitalRoot(10));
+// console.log(digitalRoot(12));
 
