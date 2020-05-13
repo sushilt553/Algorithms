@@ -20,6 +20,6 @@ function fibs(num) {
     return fibsArr;
 }
 
-console.log(fibs(3));
-console.log(fibs(4));
-console.log(fibs(5));
+// console.log(fibs(3));
+// console.log(fibs(4));
+// console.log(fibs(5));
