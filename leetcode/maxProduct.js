@@ -1,3 +1,4 @@
+//O(n)
 var maxProduct = function(nums) {
     let max = 1;
 
@@ -10,6 +11,12 @@ var maxProduct = function(nums) {
         }
     }
     return max;
+}
+
+//O(nlogn)
+var maxProduct = function(nums) {
+    let sorted = nums.sort((a, b) => a - b);
+    return (sorted[sorted.length - 1] - 1) * (sorted[sorted.length - 2] - 1);
 }
 
 console.log(maxProduct([3,4,5,2]));
