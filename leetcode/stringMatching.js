@@ -6,7 +6,7 @@ const stringMatching = (words) => {
             let word1 = words[i];
             let word2 = words[j];
 
-            if (word1.includes(word2) && j !== i) subs.push(word2);
+            if (word1.includes(word2) && j !== i && !subs.includes(word2)) subs.push(word2);
         }
     }
     return subs;
