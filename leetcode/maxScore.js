@@ -1,8 +1,9 @@
 var maxScore = function(s) {
     let max = 0;
     for (let i = 0; i < s.length; i++) {
+        if (i === s.length - 1) break;
         let left = s.slice(0, i + 1);
-        let right = s.slice(i);
+        let right = s.slice(i + 1);
         let sum = calculateSum(left, right);
         if (sum > max) max = sum;
     }
@@ -23,3 +24,4 @@ var calculateSum = function(left, right) {
 }
 
 console.log(maxScore("011101"))
+console.log(maxScore("1111"))
