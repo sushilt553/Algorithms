@@ -5,7 +5,7 @@ const createTargetArray = (nums, index) => {
         let idx = index[i];
         let ele = nums[i];
         let currenEle = targetArray[idx];
-        if (currenEle) {
+        if (currenEle >= 0) {
             targetArray.push(ele);
             insert(targetArray, idx);
         }else{
@@ -28,3 +28,4 @@ const insert = function(arr, idx) {
 }
 
 console.log(createTargetArray([0,1,2,3,4], [0,1,2,2,1]));
+console.log(createTargetArray([1,2,3,4,0], [0,1,2,3,0]));
