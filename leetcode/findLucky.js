@@ -14,8 +14,12 @@ function findLucky(arr) {
     for (let key in hash) {
         if (String(hash[key]) === key) array.push(key);
     }
-
-    return Math.max(...array);
+    if (array.length){
+        return Math.max(...array);
+    }else{
+        return -1;
+    }
 }
 
 console.log(findLucky([2, 2, 3, 4]));
+console.log(findLucky([2, 2, 3, 4, 1, 1]));
