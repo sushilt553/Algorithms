@@ -14,6 +14,7 @@ function findLucky(arr) {
     for (let key in hash) {
         if (String(hash[key]) === key) array.push(key);
     }
+    
     if (array.length){
         return Math.max(...array);
     }else{
