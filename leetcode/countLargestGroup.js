@@ -37,3 +37,4 @@ const findSum = (num) => {
 }
 
 console.log(countLargestGroup(13));
+console.log(countLargestGroup(2));
