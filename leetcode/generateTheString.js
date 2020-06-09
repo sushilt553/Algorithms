@@ -23,3 +23,5 @@ var generateTheString = function(n) {
     }
     return result;
 }
+
+console.log(generateTheString(4));
