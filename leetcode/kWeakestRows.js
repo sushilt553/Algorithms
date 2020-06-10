@@ -28,23 +28,27 @@ var kWeakestRows = function(mat, k) {
     for (let i = 0; i < soldiers.length; i++) {
         let ele = soldiers[i];
         for (let key in hash) {
-            if (hash[key].soldiers === ele) arr.push(key);
+            if (hash[key].soldiers === ele && !arr.includes(key)) arr.push(key);
             if (arr.length === k) return arr;
         }
     }
-    return arr;
+   return arr;
 }
 
-let mat = [[1, 1, 0, 0, 0],
-[1, 1, 1, 1, 0],
-[1, 0, 0, 0, 0],
-[1, 1, 0, 0, 0],
-[1, 1, 1, 1, 1]]
+// let mat = [[1, 1, 0, 0, 0],
+// [1, 1, 1, 1, 0],
+// [1, 0, 0, 0, 0],
+// [1, 1, 0, 0, 0],
+// [1, 1, 1, 1, 1]]
 
-let mat2 = [[1, 0, 0, 0],
-[1, 1, 1, 1],
-[1, 0, 0, 0],
-    [1, 0, 0, 0]]
+// let mat2 = [[1, 0, 0, 0],
+// [1, 1, 1, 1],
+// [1, 0, 0, 0],
+//     [1, 0, 0, 0]]
 
-console.log(kWeakestRows(mat, 3))
-console.log(kWeakestRows(mat2, 2))
+let mat3 =
+    [[1, 0], [1, 0], [1, 0], [1, 1]]
+
+// console.log(kWeakestRows(mat, 3))
+// console.log(kWeakestRows(mat2, 2))
+console.log(kWeakestRows(mat3, 4))
