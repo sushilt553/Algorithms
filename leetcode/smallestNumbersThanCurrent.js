@@ -12,4 +12,18 @@ var smallestNumbersThanCurrent = function(nums) {
     return result;
 }
 
-console.log(smallestNumbersThanCurrent([8,1,2,2,3]));
+var smallerNumbersThanCurrent = function(nums) {
+    let arr = Array.from(nums);
+    let sorted = nums.sort((a, b) => b - a);
+    let hash = {};
+    let result = [];
+
+    for (let i = 0; i < sorted.length; i++) {
+        hash[sorted[i]] = sorted.length - 1 - i;
+    }
+
+    arr.forEach((ele) => result.push(hash[ele]));
+    return result;
+}
+
+console.log(smallerNumbersThanCurrent([8,1,2,2,3]));
