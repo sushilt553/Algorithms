@@ -1,21 +1,36 @@
 var sortString = function(s) {
-    let alphabet = "abcdefghijklmnopqrstuvwxyz";
-    let result = "";
+   let hash = {};
+   let result = "";
 
-    while (result.length !== s.length) {
-        let smallestChar = minChar(alphabet, s);
-        result += smallestChar;
-    }
+   for (let i = 0; i < s.length; i++) {
+       if (hash[s[i]]) {
+           hash[s[i]]++;
+       }else{
+           hash[s[i]] = 1;
+       }
+   }
+
+   let hasChars = () => {
+       return Object.keys(hash).some((key) => hash[key] > 0);
+   }
+
+   let increasing = (m = true) => {
+       let k = Object.keys(hash).sort().filter((a) => hash[a] > 0);
+
+       k = m === false ? k.reverse() : k;
+
+       k.forEach((ele) => {
+           result += ele;
+           hash[ele]--;
+       })
+   }
+
+   while (hasChars()) {
+       increasing();
+       if (hasChars()) {
+           increasing(false);
+       }
+   }
+   return result;
 }
 
-var minChar = (alphabet, s) => {
-    let min = s[0];
-
-    for (let i = 0; i < s.length; i++) {
-        if (alphabet.indexOf(s[i]) < alphabet.indexOf(min)) min = s[i];
-    }
-    return min;
-}
-
-let alphabet = "abcdefghijklmnopqrstuvwxyz";
-console.log(minChar(alphabet, "dddfffbbbccc"))
