@@ -13,7 +13,7 @@ var sumZero = function(n) {
 }
 
 var sum = function(arr) {
-    return arr.reduce((acc, ele) => acc + ele);
+    return arr.reduce((acc, ele) => acc + ele, 0);
 }
 
 console.log(sumZero(5));
