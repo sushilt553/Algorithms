@@ -15,3 +15,4 @@ var findMax = function(arr) {
 }
 
 console.log(replaceElements([17,18,5,4,6,1]));
+console.log(replaceElements([1,2,3,4,5]));
