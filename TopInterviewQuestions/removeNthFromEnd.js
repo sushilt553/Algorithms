@@ -16,7 +16,7 @@ var removeNthFromEnd = function(head, n) {
         currHead = currHead.next;
         length--;
     }
-    dummy
+    currHead.next = currHead.next.next;
     return dummy.next;
 }
 
