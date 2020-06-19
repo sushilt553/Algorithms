@@ -15,4 +15,29 @@ var balancedStringSplit = function(str) {
    return matches;
 }
 
-console.log(balancedStringSplit("RLRRLLRLRL"))
+var balancedStringSplit = function(str) {
+    let obj = {
+        "(": ")",
+        "{": "}",
+        "[": "]"
+    }
+
+    let stack = [];
+
+    for (let i = 0; i < str.length; i++) {
+        if (obj[str[i]]) {
+            stack.push(obj[str[i]]);
+        }else{
+            let ele = stack.pop();
+            if (str[i] !== ele) return false;
+        }        
+    }
+    if (stack.length > 0) return false;
+    return true;
+}
+
+// console.log(balancedStringSplit("RLRRLLRLRL"))
+console.log(balancedStringSplit("()"))
+console.log(balancedStringSplit("[{()]"))
+console.log(balancedStringSplit("{()}"))
+console.log(balancedStringSplit("{()}}"))
