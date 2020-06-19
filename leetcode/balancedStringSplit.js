@@ -1,34 +1,18 @@
-var balancedStringSplit = function(s) {
+var balancedStringSplit = function(str) {
+   let matches = 0;
+   let balance = 0;
 
+   for (let i = 0; i < str.length; i++) {
+       if (str[i] === "L") {
+           balance--;
+       }else if (str[i] === "R") {
+           balance++;
+       }
+
+       if (balance === 0) matches++;
+   }
+
+   return matches;
 }
 
-var substrings = function(str) {
-    let subs = {};
-
-    for (let i = 0; i < str.length; i++) {
-        for (let j = i + 1; j <= str.length; j++) {
-            let ele = str.slice(i, j);
-            subs[ele] = count(ele);
-        }
-    }
-    return subs;
-}
-
-var count = function(str) {
-    let obj = {};
-
-    for (let i = 0; i < str.length; i++) {
-        if (obj[str[i]] && str[i] === "L") {
-            obj[str[i]]++;
-        }else if (obj[str[i]] && str[i] === "R") {
-            obj[str[i]]++;
-        }else if (str[i] === "L") {
-            obj[str[i]] = 1;
-        }else if (str[i] === "R"){
-            obj[str[i]] = 1;
-        }
-    }
-    return obj;
-}
-
-console.log(count("RRRLL"))
+console.log(balancedStringSplit("RLRRLLRLRL"))
