@@ -8,3 +8,21 @@ var findSolution = function(customfunction, z) {
     }
     return result;
 }
+
+var findSolution = function(customfunction, z) {
+    let result = [];
+
+    for (let x = 1, y = 1000; x <= 1000 && y >= 1;) {
+        let val = customfunction.f(x, y);
+        if (val === z) {
+            result.push([x, y]);
+
+        };
+        if (val < z) {
+            x++;
+        }else {
+            y--;
+        }
+    }
+    return result;
+}
