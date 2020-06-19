@@ -19,4 +19,8 @@ var finalPrices = function(prices) {
     return arr;
 }
 
+var finalPrices = function(prices) {
+    
+}
+
 console.log(finalPrices([8,4,6,2,3]))
