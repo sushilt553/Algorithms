@@ -1,0 +1,3 @@
+var minCostToMoveChips = function(chips) {
+    
+}
