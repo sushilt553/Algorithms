@@ -1,20 +1,27 @@
 var minAbsoluteDifference = function(arr) {
     let sortedArr = arr.sort((a, b) => a - b);
 
-    let minValue = Math.abs(sortedArr[1] - sortedArr[0]);
+    let minValue = findMinValue(sortedArr);
     let result = [];
 
-    for (let i = 0; i < arr.length; i++) {
-        for (let j = 0; j < arr.length; j++) {
-            let ele = Math.abs(arr[j] - arr[i]);
-
-            if (ele === minValue && j > i) {
-                result.push([arr[i], arr[j]]);
-            }
+    for (let i = 0; i < arr.length - 1; i++) {
+        let ele = Math.abs(arr[i] - arr[i + 1]);
+        if (ele === minValue) {
+            result.push([arr[i], arr[i + 1]]);
         }
     }
     return result;
 }
 
+function findMinValue(arr) {
+    let minVal = Infinity;
+
+    for (let i = 0; i < arr.length - 1; i++) {
+        let ele = Math.abs(arr[i] - arr[i + 1]);
+
+        if (ele < minVal) minVal = ele;
+    }
+    return minVal
+}
 
 console.log(minAbsoluteDifference([4,2,1,3]))
