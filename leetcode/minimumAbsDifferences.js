@@ -1,0 +1,3 @@
+var minAbsoluteDifference = function(arr) {
+    
+}
