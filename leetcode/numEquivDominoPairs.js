@@ -14,3 +14,34 @@ function numEquivDominoPairs(dominoes) {
     }
     return count;
 }
+
+function numEquivDominoPairs(dominoes) {
+    let hash = {};
+
+    for (let i = 0; i < dominoes.length; i++) {
+        let dom = dominoes[i].sort((a, b) => a - b).toString()
+        if (hash[dom]) {
+            hash[dom]++;
+        }else{
+            hash[dom] = 1;
+        }
+    }
+
+    let result = 0;
+
+    for (let key in hash) {
+        if (hash[key] > 1) {
+            result += (hash[key] * (hash[key] - 1)) / 2
+        }
+    }
+    
+    return result;
+}
+
+//numCombinations = n! / ((n - r)! * r!)
+
+// n * (n - 1) * (n - 2)! / ((n - 2)! * 2!)
+
+//n * (n - 1) / 2!
+
+console.log(numEquivDominoPairs([[1, 2], [2, 1], [3, 4], [5, 6]]))
