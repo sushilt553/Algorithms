@@ -2,11 +2,15 @@ var duplicateZeros = function(arr) {
 
     for (let i = 0; i < arr.length; i++) {
         if (arr[i] === 0) {
-            let temp = arr[i];
+            arr.splice(i, 0, 0);
+            arr.pop();
+            i++;
         }
     }
     return arr;
 }
+
+console.log(duplicateZeros([1, 0, 2, 3, 0, 4, 5, 0]))
 
 function insertionSort(arr) {
     for (let i = 1; i < arr.length; i++) {
