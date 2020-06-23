@@ -1,7 +1,7 @@
 var lastStoneWeight = function(stones) {
-    let arr = stones.sort((a, b) => a - b);
-
-    while (arr.length > 1) {
+    
+    while (stones.length > 1) {
+        let arr = stones.sort((a, b) => a - b);
         let max1 = arr.pop();
         let max2 = arr.pop();
 
@@ -10,7 +10,7 @@ var lastStoneWeight = function(stones) {
         if (diff > 0) arr.push(diff);
     }
 
-    if (arr.length > 0) return arr;
+    if (stones.length > 0) return stones;
 
     return 0;
 }
