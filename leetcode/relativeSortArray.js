@@ -29,6 +29,37 @@ var relativeSortArray = function(arr1, arr2) {
     }) 
     return newArr;
 }
+
+var relativeSortArray = function(arr1, arr2) {
+
+    let hash = {};
+    let restArr = [];
+    let result = [];
+
+    for (let i = 0; i < arr2.length; i++) {
+        hash[arr2[i]] = 0;
+    }
+
+    for (let i = 0; i < arr1.length; i++) {
+        if (hash[arr1[i]] >= 0) {
+            hash[arr1[i]]++;
+        }else{
+            restArr.push(arr1[i]);
+        }
+    }
+
+    for (let i = 0; i < arr2.length; i++) {
+        while (hash[arr2[i]]) {
+            result.push(arr2[i]);
+            hash[arr2[i]]--;
+        }
+    }
+
+    return result.concat(restArr.sort((a, b) => a - b));
+    
+}
+
+
 let arr1 = [2, 3, 1, 3, 2, 4, 6, 7, 9, 2, 19];
 let arr2 = [2, 1, 4, 3, 9, 6];
 
