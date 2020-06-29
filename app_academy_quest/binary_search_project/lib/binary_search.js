@@ -35,7 +35,25 @@ function binarySearch(array, target) {
 }
 
 function binarySearchIndex(array, target) {
+    if (array.length === 0) return -1;
 
+    let midIdx = Math.floor(array.length / 2);
+    let leftArr = array.slice(0, midIdx);
+    let rightArr = array.slice(midIdx + 1);
+
+    if (array[midIdx] === target) {
+        return midIdx;
+    }else if (array[midIdx] > target) {
+        return binarySearchIndex(leftArr, target);
+    }else{
+        let foundIdx = binarySearchIndex(rightArr, target);
+        if (foundIdx === -1) {
+            return -1;
+        }else{
+            return foundIdx + midIdx + 1;
+        }
+
+    }
 }
 
 
