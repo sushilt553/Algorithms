@@ -189,6 +189,19 @@ function fileFinder(directories, targetFile) {
 // pathFinder(desktop, 'honeybadger.png'));     // => null
 function pathFinder(directories, targetFile) {
 
+    for (let key in directories) {
+        if (key === targetFile) {
+            return "/" + targetFile;
+        }
+
+        let finder = pathFinder(directories[key], targetFile);
+
+        if (finder) {
+            return key + finder
+        }
+
+    }
+    return null;
 }
 
 
