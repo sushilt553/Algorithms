@@ -47,19 +47,30 @@ function stepper(nums) {
 //
 // maxNonAdjacentSum([2, 7, 9, 3, 4])   // => 15, because 2 + 9 + 4
 // maxNonAdjacentSum([4,2,1,6])         // => 10, because 4 + 6 
-function maxNonAdjacentSum(nums) {
+// function maxNonAdjacentSum(nums) {
+//     if (nums.length === 0) return 0;
+
+//     let incl = nums[0];
+//     let excl = 0;
+
+//     for (let i = 1; i < nums.length; i++) {
+//         let temp = incl
+//         incl = Math.max(incl, excl + nums[i]);
+//         excl = temp;
+//     }
+
+//     return Math.max(incl, excl);
+// }
+
+function maxNonAdjacentSum(nums, memo = {}) {
     if (nums.length === 0) return 0;
+    if (memo[nums]) return memo[nums];
 
-    let incl = nums[0];
-    let excl = 0;
+    let incl = maxNonAdjacentSum(nums.slice(1), memo)
+    let excl = nums[0] + maxNonAdjacentSum(nums.slice(2), memo);
 
-    for (let i = 1; i < nums.length; i++) {
-        let temp = incl
-        incl = Math.max(incl, excl + nums[i]);
-        excl = temp;
-    }
-
-    return Math.max(incl, excl);
+    memo[nums] = Math.max(incl, excl);
+    return memo[nums];
 }
 
 
