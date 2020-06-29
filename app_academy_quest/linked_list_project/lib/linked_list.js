@@ -120,11 +120,18 @@ class LinkedList {
             head = head.next;
         }
         return false;
-    }
+    }   
 
     // TODO: Implement the get method here
     get(index) {
+        if (index >= this.length) return null;
 
+        let currHead = this.head;
+
+        for (let i = 0; i < index; i++) {
+            currHead = currHead.next;
+        }
+        return currHead;
     }
 
     // TODO: Implement the set method here
