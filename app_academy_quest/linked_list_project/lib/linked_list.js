@@ -23,20 +23,32 @@
 // TODO: Implement a Linked List Node class here
 class Node {
     constructor(val) {
-
+        this.value = val;
+        this.next = null;
     }
-
 }
 
 // TODO: Implement a Singly Linked List class here
 class LinkedList {
     constructor() {
-
+        this.head = null;
+        this.tail = null;
+        this.length = 0;
     }
 
     // TODO: Implement the addToTail method here
     addToTail(val) {
+        let node = new Node(val);
+        if (!this.head) {
+            this.head = node;
+            this.tail = node;
+        }else{
+            this.tail.next = node;
+            this.tail = node;
+        }
 
+        this.length++;
+        return this
     }
 
     // TODO: Implement the removeTail method here
