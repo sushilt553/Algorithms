@@ -18,7 +18,16 @@ function merge(array1, array2) {
 }
 
 function mergeSort(array) {
+    if (array.length <= 1) return array;
 
+    let midIdx = Math.floor(array.length / 2);
+    let leftArr = array.slice(0, midIdx);
+    let rightArr = array.slice(midIdx);
+
+    let sortedLeft = mergeSort(leftArr);
+    let sortedRight = mergeSort(rightArr);
+
+    return merge(sortedLeft, sortedRight);
 }
 
 module.exports = {
