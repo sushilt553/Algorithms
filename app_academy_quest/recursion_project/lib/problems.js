@@ -170,6 +170,11 @@ function flatten(data) {
 // fileFinder(desktop, 'sequoia.jpeg');             // => false
 function fileFinder(directories, targetFile) {
 
+    for (let key in directories) {
+        if (key === targetFile || fileFinder(directories[key], targetFile)) return true;
+    }
+
+    return false;
 }
 
 
