@@ -59,11 +59,35 @@
 // -----------
 // Let's code!
 // -----------
+// function hasCycle(linkedList) {
+//   // TODO: Implement the hasCycle function!
+//   let set = new Set();
+
+//   let head = linkedList.head;
+
+//   while (head) {
+//     if (set.has(head.value)) return true;
+//     set.add(head.value);
+//     head = head.next;
+//   }
+//   return false;
+// }
+
 function hasCycle(linkedList) {
   // TODO: Implement the hasCycle function!
+  let tortoise = linkedList.head;
+  let hare = linkedList.head;
 
-}
+  while (hare && hare.next) {
+    tortoise = tortoise.next;
+    hare = hare.next.next;
 
+    if (tortoise && hare) {
+      if (hare.value === tortoise.value) return true;
+    }
+  }
+  return false;
+};
 
 // ----------------------------------------
 // Given: Singly Linked List - Do Not Edit!
