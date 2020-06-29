@@ -48,7 +48,7 @@ class LinkedList {
         }
 
         this.length++;
-        return this
+        return this;
     }
 
     // TODO: Implement the removeTail method here
@@ -66,7 +66,7 @@ class LinkedList {
             while (currNode.next.next) {
                 currNode = currNode.next;
             }
-            
+
             temp = currNode.next;
             currNode.next = null;
             this.tail = currNode;
@@ -77,7 +77,19 @@ class LinkedList {
 
     // TODO: Implement the addToHead method here
     addToHead(val) {
+        let node = new Node(val);
 
+        if (!this.head) {
+            this.head = node;
+            this.tail = node;
+          
+        }else{
+            let temp = this.head;
+            this.head = node;
+            this.head.next = temp;
+        }
+        this.length++;
+        return this;
     }
 
     // TODO: Implement the removeHead method here
