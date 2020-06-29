@@ -46,6 +46,26 @@ class Queue {
         this.length++;
         return this.length;
     }
+
+    dequeue() {
+        if (this.length === 0) return null;
+        if (this.length === 1) {
+            let temp = this.front;
+            this.front = null;
+            this.back = null;
+            this.length--;
+            return temp.value;
+        }else{
+            let temp = this.front;
+            this.front = temp.next;
+            this.length--;
+            return temp.value; 
+        }
+    }
+
+    size() {
+        return this.length;
+    }
 }
 
 exports.Node = Node;
