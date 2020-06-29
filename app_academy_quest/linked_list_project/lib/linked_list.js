@@ -149,17 +149,31 @@ class LinkedList {
 
     // TODO: Implement the insert method here
     insert(index, val) {
+        if (index >= this.length) return false;
+        let node = new Node(val);
 
+        let prevNode = this.get(index - 1);
+        let next = prevNode.next
+        prevNode.next = node;
+        node.next = next;
+        this.length++;
+        return true;
     }
 
     // TODO: Implement the remove method here
     remove(index) {
+        if (index >= this.length) return undefined;
 
+        let prevNode = this.get(index - 1);
+        let temp = prevNode.next;
+        prevNode.next = prevNode.next.next;
+        this.length--;
+        return temp;
     }
 
     // TODO: Implement the size method here
     size() {
-
+        return this.length;
     }
 }
 
