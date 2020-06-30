@@ -78,22 +78,19 @@
 function balancedParens(str) {
     let obj = {
         "(": ")",
-        "{": "}", 
+        "{": "}",
         "[": "]"
-    }
+    };
 
     let stack = [];
 
     for (let i = 0; i < str.length; i++) {
         if (obj[str[i]]) {
             stack.push(obj[str[i]]);
-        }else if ((str[i] === ")" || str[i] === "}" || str[i] === "]") && (stack.length === 0 || str[i] !== stack.pop())) {
-            return false;
-        }
+        }else if ((str[i] === ")" || str[i] === "}" || str[i] === "]") && str[i] !== stack.pop()) return false;
     }
-    if (stack.length === 0) return true;
 
-    return false;
+    return stack.length === 0;
 }
 
 exports.balancedParens = balancedParens;
