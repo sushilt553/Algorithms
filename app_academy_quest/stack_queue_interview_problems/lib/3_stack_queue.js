@@ -40,15 +40,51 @@ class Stack {
         this.bottom = null;
         this.length = 0;
     }
+
+    push(newStackNode) {
+        
+    }
+
+    pop() {
+
+    }
+
+    size() {
+        return this.length;
+    }
+
 }
 
 class StackQueue {
     // TODO: Implement the StackQueue class!
     constructor() {
-        this.stack1 = new Stack();
-        this.stack2 = new Stack();
+        this.inStack = new Stack();
+        this.outStack = new Stack();
+        this.front = null;
+        this.back = null;
     }
 
+    enqueue(val) {
+        let newNode = new Node(val);
+
+        if (!this.front) {
+            this.front = newNode;
+            this.back = newNode;
+        }else{
+            this.back.next = newNode;
+            this.back = newNode; 
+        }
+        this.inStack.push(new Node(newNode.value))
+        return this.size();
+    }
+
+    dequeue(val) {
+
+    }
+
+    size(){
+        return this.inStack.size() + this.outStack.size();
+    }
 };
 
 exports.Node = Node;
