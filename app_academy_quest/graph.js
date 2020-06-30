@@ -65,3 +65,47 @@ function dfs(node, graph) {
     }
 }
 
+function depthFirst(graph) {
+    let visited = new Set();
+
+    for (let node in graph) {
+        dfs(node, graph, visited);
+    }
+}
+
+function dfs(node, graph, visited) {
+    if (visited.has(node)) return;
+
+    console.log(node);
+    visited.add(node);
+
+    graph[node].forEach((n) => {
+        dfs(n, graph, visited);
+    })
+}
+
+function dijkstra(graph, source) {
+    let distance = {};
+
+    for (let node in graph) {
+        distance[node] = Infinity;
+    }
+
+    distance[source] = 0;
+
+    let unvisited = new Set(Object.keys(graph));
+
+    while (unvisited.size() > 0) {
+        let currNode = 
+    }
+}
+
+function findMinNode(distance, unvisited) {
+    return Array.from(unvisited).reduce((minNode, node) => {
+        if (distance[node] < distance[minNode]) {
+            return node;
+        }else{
+            return minNode;
+        }
+    })
+}
