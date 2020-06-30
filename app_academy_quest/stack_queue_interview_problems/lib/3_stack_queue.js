@@ -55,7 +55,19 @@ class Stack {
     }
 
     pop() {
-
+        if (this.length === 0) return null;
+        if (this.length === 1) {
+            let temp = this.top;
+            this.top = null;
+            this.bottom = null;
+            this.length--;
+            return temp;
+        }else{
+            let temp = this.top;
+            this.top = this.top.next;
+            this.length--;
+            return temp;
+        }
     }
 
     size() {
