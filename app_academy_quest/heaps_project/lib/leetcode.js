@@ -73,3 +73,15 @@ class MaxHeap {
         this.siftDown(swapIdx);
     }
 }
+
+function findKthLargest(nums, k) {
+    let heap = new MaxHeap();
+
+    nums.forEach((ele) => heap.insert(ele));
+
+    let max;
+    for (let i = 0; i < k; i++) {
+        max = heap.deleteMax();
+    }
+    return max;
+}
