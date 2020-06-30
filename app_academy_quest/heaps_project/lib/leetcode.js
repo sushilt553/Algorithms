@@ -28,6 +28,15 @@ class MaxHeap {
     }
 
     siftUp(i) {
-        
+        if (i === 1) return;
+
+        let parentIdx = this.getParent(i);
+
+        if (this.array[parentIdx] < this.array[i]) {
+            [this.array[parentIdx], this.array[i]] = [this.array[i], this.array[parentIdx]];
+            this.siftUp(parentIdx);
+        }
     }
+
+    
 }
