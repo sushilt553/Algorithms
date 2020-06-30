@@ -41,15 +41,41 @@ class Stack {
     }
 
     push(val) {
+        let node = new Node(val);
 
+        if (!this.top) {
+            this.top = node;
+            this.bottom = node;
+            this.length++;
+            return this.length;
+        }else{
+            let temp = this.top;
+            this.top = node;
+            this.top.next = temp;
+            this.length++;
+            return this.length;
+        }
     }
 
     pop() {
+        if (!this.top) return null;
 
+        if (this.length === 1) {
+            let temp = this.top;
+            this.top = null;
+            this.bottom = null;
+            this.length--;
+            return temp;
+        }else{
+            let temp = this.top;
+            this.top = this.top.next;
+            this.length--;
+            return temp;
+        }
     }
 
     size() {
-        
+        return this.length;
     }
 }
 
