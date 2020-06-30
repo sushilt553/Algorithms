@@ -42,7 +42,16 @@ class Stack {
     }
 
     push(newStackNode) {
-        
+        if (this.length === 0) {
+            this.top = newStackNode;
+            this.bottom = newStackNode;
+        }else{
+            let temp = this.top
+            this.top = newStackNode;
+            this.top.next = temp;
+        }
+        this.length++;
+        return this.length;
     }
 
     pop() {
