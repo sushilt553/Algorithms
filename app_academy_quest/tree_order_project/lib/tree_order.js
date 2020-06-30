@@ -5,7 +5,9 @@ function inOrderArray(root) {
 }
 
 function postOrderArray(root) {
+    if (!root) return [];
 
+    return postOrderArray(root.left).concat(postOrderArray(root.right), [root.val]);
 }
 
 
