@@ -12,4 +12,8 @@ class MaxHeap {
     getParent(i) {
         return Math.floor(i / 2);
     }
+
+    getLeftChild(i) {
+        return i * 2;
+    }
 }
