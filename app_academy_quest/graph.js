@@ -30,3 +30,23 @@ function dfs(node) {
     }
 }
 
+let graph = {
+    'a': ['b', 'c', 'e'],
+    'b': [],
+    'c': ['b', 'd'],
+    'd': [],
+    'e': ['a'],
+    'f': ['e']
+};
+
+function dfs(node, graph, visited = new Set()) {
+    if (visited.has(node)) return;
+
+    console.log(node)
+    visited.add(node);
+
+    graph[node].forEach((n) => {
+        dfs(n, graph, visited)
+    })
+}
+
