@@ -38,6 +38,22 @@ class Trie {
             root = root.children[word[i]]
        }
    }
+
+   searchRecur(word, root=this.root) {
+    if (word.length === 0) {
+        if (root.isTerminal) {
+            return true;
+        }else{
+            return false;
+        }
+    } 
+    let letter = word[0];
+    if (!root.children[letter]){
+        return false;
+    }else{
+        return this.searchRecur(word.slice(1), root.children[letter])
+    }
+   }
 }
 
 module.exports = {
