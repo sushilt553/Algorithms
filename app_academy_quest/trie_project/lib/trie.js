@@ -54,6 +54,29 @@ class Trie {
         return this.searchRecur(word.slice(1), root.children[letter])
     }
    }
+
+   searchIter(word) {
+       let root = this.root;
+       
+       for (let i = 0 ; i < word.length; i++) {
+            let letter = word[i];
+            
+            if (root.children[letter] && i === word.length - 1) {
+                if (root.children[letter].isTerminal) {
+                    return true;
+                }else{
+                    return false;
+                }
+            }
+
+            if (!root.children[letter]){
+                return false;
+            }
+
+            root = root.children[letter];
+       }
+       return false;
+   }
 }
 
 module.exports = {
