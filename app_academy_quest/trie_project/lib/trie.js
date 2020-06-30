@@ -6,7 +6,24 @@ class Node {
 }
 
 class Trie {
-   
+   constructor() {
+       this.root = new Node();
+   }
+
+   insertRecur(word, root = this.root) {
+
+       let letter = word[0];
+
+       if (!root.children[letter]) {
+           root.children[letter] = new Node();
+       }
+
+       if (word.length === 1) {
+           root.children[letter].isTerminal = true;
+       }else{
+            this.insertRecur(word.slice(1), root.children[letter]);
+       }
+   }
 }
 
 module.exports = {
