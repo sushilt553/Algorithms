@@ -20,4 +20,14 @@ class MaxHeap {
     getRightChild(i) {
         return i * 2 + 1;
     }
+
+    insert(val) {
+        this.array.push(val);
+
+        this.siftUp(this.array.length - 1);
+    }
+
+    siftUp(i) {
+        
+    }
 }
