@@ -50,3 +50,18 @@ function dfs(node, graph, visited = new Set()) {
     })
 }
 
+function dfs(node, graph) {
+    let visited = new Set();
+
+    let stack = [node];
+
+    while (stack.length) {
+        let n = stack.pop();
+        if (visited.has(n)) continue;
+        console.log(n);
+        visited.add(n);
+
+        stack.push(...graph[node]);
+    }
+}
+
