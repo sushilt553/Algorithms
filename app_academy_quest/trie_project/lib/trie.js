@@ -24,6 +24,20 @@ class Trie {
             this.insertRecur(word.slice(1), root.children[letter]);
        }
    }
+
+   insertIter(word) {
+       let root = this.root;
+
+       for (let i = 0; i < word.length; i++) {
+           if (!root.children[word[i]] && i === word.length - 1) {
+               root.children[word[i]] = new Node();
+               root.children[word[i]].isTerminal = true;
+           }else if (!root.children[word[i]]){
+               root.children[word[i]] = new Node();
+           }
+            root = root.children[word[i]]
+       }
+   }
 }
 
 module.exports = {
