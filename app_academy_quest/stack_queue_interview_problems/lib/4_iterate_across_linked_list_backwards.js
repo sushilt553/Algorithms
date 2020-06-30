@@ -26,6 +26,33 @@
 // Let's code!
 // -----------
 
+class Node {
+    constructor(val) {
+        this.value = val;
+        this.next = null;
+    }
+}
+
+class Stack {
+    constructor() {
+        this.top = null;
+        this.bottom = null;
+        this.length = 0;
+    }
+
+    push(val) {
+
+    }
+
+    pop() {
+
+    }
+
+    size() {
+        
+    }
+}
+
 function iterateAcrossLinkedListBackwards(linkedList) {
     // TODO: Implement the iterateAcrossLinkedListBackwards function here
 
