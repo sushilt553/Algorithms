@@ -95,9 +95,23 @@ function dijkstra(graph, source) {
 
     let unvisited = new Set(Object.keys(graph));
 
+    let previous = {};
+
     while (unvisited.size() > 0) {
-        let currNode = 
+        let currNode = findMinNode(distance, unvisited);
+        unvisited.delete(currNode);
+
+        for (let neighbor in graph[currNode]) {
+            let distanceToNeighbor = graph[currNode][neighbor];
+            let totalDistance = distanc[currNode] + distanceToNeighbor;
+
+            if (totalDistance < distance[neighbor]) {
+                distance[neighbor] = totalDistance;
+                previous[neighbor] = currNode;
+            }
+        }
     }
+    return {distance, previous};
 }
 
 function findMinNode(distance, unvisited) {
