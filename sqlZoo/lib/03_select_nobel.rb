@@ -33,6 +33,9 @@ end
 def literature_1962
   # Show who won the 1962 prize for Literature.
   execute(<<-SQL)
+  select winner
+  from nobels
+  where yr = 1962 and subject = 'Literature'
   SQL
 end
 
