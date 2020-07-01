@@ -51,6 +51,9 @@ end
 def millennial_peace_prizes
   # Give the name of the 'Peace' winners since the year 2000, including 2000.
   execute(<<-SQL)
+  select winner
+  from nobels
+  where subject = 'Peace' and year >= 2000
   SQL
 end
 
