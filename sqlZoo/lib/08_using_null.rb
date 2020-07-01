@@ -60,6 +60,9 @@ def teachers_and_depts
   # department name. Use the string 'None' where there is no
   # department.
   execute(<<-SQL)
+  select teachers.name, coalesce(depts.name, 'None')
+  from teachers
+  left outer join depts on teachers.dept_id = depts.id
   SQL
 end
 
