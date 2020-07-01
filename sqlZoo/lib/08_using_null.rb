@@ -50,6 +50,8 @@ def teachers_and_mobiles
   # 444 2266' if no number is given. Show teacher name and mobile
   # #number or '07986 444 2266'
   execute(<<-SQL)
+  select teachers.name, coalesce(teachers.mobile, '07986 444 2266')
+  from teachers
   SQL
 end
 
