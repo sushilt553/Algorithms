@@ -119,6 +119,12 @@ def films_by_cast_size
   # List the films released in the year 1978 ordered by the number of actors
   # in the cast (descending), then by title (ascending).
   execute(<<-SQL)
+  select movies.title, count(*) as number_of_actors
+  from movies
+  join castings on castings.movie_id = movies.id
+  where movies.yr = 1978
+  group by movies.title
+  order by number_of_actors DESC, movies.title ASC
   SQL
 end
 
