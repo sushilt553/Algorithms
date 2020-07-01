@@ -131,5 +131,12 @@ end
 def colleagues_of_garfunkel
   # List all the people who have played alongside 'Art Garfunkel'.
   execute(<<-SQL)
+  select a2.name
+  from actors a1
+  join castings c1 on c1.actor_id = a1.id
+  join movies m1 on m1.id = c1.movie_id
+  join castings c2 on m1.id = c2.movie_id
+  join actors a2 on a2.id = c2.actor_id
+  where a1.name = 'Art Garfunkel' and a2.name != 'Art Garfunkel'
   SQL
 end
