@@ -71,11 +71,17 @@ def presidential_prizes
   # Show all details of the presidential winners: ('Theodore Roosevelt',
   # 'Woodrow Wilson', 'Jimmy Carter')
   execute(<<-SQL)
+  select *
+  from nobels
+  where winner in ('Theodore Roosevelt','Woodrow Wilson','Jimmy Carter')
   SQL
 end
 
 def nobel_johns
   # Show the winners with first name John
   execute(<<-SQL)
+  select winner
+  from nobels
+  where winner like ('John%')
   SQL
 end
