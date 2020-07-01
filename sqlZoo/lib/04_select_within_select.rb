@@ -80,6 +80,17 @@ def population_constraint
   # Which country has a population that is more than Canada but less than
   # Poland? Show the name and the population.
   execute(<<-SQL)
+  select name, population
+  from countries
+  where population > (
+    select population
+    from countries
+    where name = 'Canada'
+  ) and population < (
+    select population
+    from countries
+    where name = 'Poland'
+  )
   SQL
 end
 
