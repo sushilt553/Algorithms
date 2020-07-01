@@ -30,6 +30,9 @@ end
 def africa_gdp
   # Give the total GDP of Africa.
   execute(<<-SQL)
+  select SUM(gdp) as total_gdp
+  from countries
+  where continent = 'Africa'
   SQL
 end
 
