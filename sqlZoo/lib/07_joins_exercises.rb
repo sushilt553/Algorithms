@@ -90,6 +90,13 @@ def andrews_films_and_leads
   # List the film title and the leading actor for all of the films 'Julie
   # Andrews' played in.
   execute(<<-SQL)
+  select distinct movies.title, a2.name
+  from actors as a1
+  join castings c1 on c1.actor_id = a1.id
+  join movies on c1.movie_id = movies.id
+  join castings c2 on c2.movie_id = movies.id
+  join actors a2 on c2.actor_id = a2.id
+  where a1.name = 'Julie Andrews' and c2.ord = 1
   SQL
 end
 
