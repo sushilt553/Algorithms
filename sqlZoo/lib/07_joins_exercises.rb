@@ -53,6 +53,11 @@ def ford_supporting_films
   # role. [Note: the ord field of casting gives the position of the actor. If
   # ord=1 then this actor is in the starring role]
   execute(<<-SQL)
+  select movies.title
+  from movies
+  join castings on castings.movie_id = movies.id
+  join actors on actors.id = castings.actor_id
+  where actors.name = 'Harrison Ford' and ord != 1
   SQL
 end
 
