@@ -39,6 +39,9 @@ def all_depts_join
   # NB: you can avoid RIGHT OUTER JOIN (and just use LEFT) by swapping
   # the FROM and JOIN tables.
   execute(<<-SQL)
+  select teachers.name, depts.name
+  from depts
+  left outer join teachers on depts.id = teachers.dept_id
   SQL
 end
 
