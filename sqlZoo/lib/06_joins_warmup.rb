@@ -75,6 +75,9 @@ end
 def glenn_close_id
   # What id number does the actress 'Glenn Close' have?
   execute(<<-SQL)
+    select id 
+    from actors
+    where name = 'Glenn Close'
   SQL
 end
 
