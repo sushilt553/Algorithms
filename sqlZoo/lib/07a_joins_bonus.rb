@@ -92,6 +92,10 @@ def song_title_counts
   # Select the song names that appear on more than two albums. Also select the
   # COUNT of times they show up.
   execute(<<-SQL)
+  select tracks.song, count(distinct tracks.album) as num_albums
+  from tracks
+  group by tracks.song
+  having count(distinct tracks.album) > 2
   SQL
 end
 
