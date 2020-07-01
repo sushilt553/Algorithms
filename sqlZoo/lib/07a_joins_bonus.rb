@@ -71,6 +71,10 @@ def title_tracks
   # A 'title track' has a `song` that is the same as its album's `title`. Select
   # the names of all the title tracks.
   execute(<<-SQL)
+  select tracks.song
+  from tracks
+  join albums on albums.asin = tracks.album
+  where tracks.song = albums.title
   SQL
 end
 
