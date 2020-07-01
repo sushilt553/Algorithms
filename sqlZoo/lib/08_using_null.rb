@@ -95,7 +95,7 @@ def teachers_and_divisions
   select 
     teachers.name,
     case 
-      when teacher.dept_id in (1, 2) then 'Sci' 
+      when teachers.dept_id in (1, 2) then 'Sci' 
       else 'Art' 
     end
   from
@@ -108,5 +108,13 @@ def teachers_and_divisions_two
   # the teacher is in dept 1 or 2, 'Art' if the dept is 3, and
   # 'None' otherwise.
   execute(<<-SQL)
+  select teachers.name,
+    case 
+    when teachers.dept_id in (1, 2) then 'Sci'
+    when teachers.dept_id = 3 then 'Art'
+    else 'None'
+    end
+  from 
+    teachers
   SQL
 end
