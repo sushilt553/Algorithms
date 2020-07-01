@@ -97,7 +97,6 @@ def casablanca_cast
   select actors.name
   from actors
   join castings on castings.actor_id = actors.id
-  join movies on castings.movie_id = movies.id
   where movie_id = 27
   SQL
 end
@@ -105,5 +104,10 @@ end
 def alien_cast
   # Obtain the cast list for the film 'Alien'
   execute(<<-SQL)
+  select actors.name
+  from actors
+  join castings on castings.actor_id = actors.id
+  join movies on castings.movie_id = movies.id
+  where movies.title = 'Alien'
   SQL
 end
