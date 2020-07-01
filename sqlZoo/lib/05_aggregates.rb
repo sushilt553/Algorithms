@@ -48,6 +48,9 @@ end
 def group_population
   # What is the total population of ('France','Germany','Spain')?
   execute(<<-SQL)
+  select sum(population)
+  from countries
+  where name in ('France', 'Germany', 'Spain')
   SQL
 end
 
