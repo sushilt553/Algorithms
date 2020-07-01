@@ -42,6 +42,9 @@ end
 def einstein_prize
   # Show the year and subject that won 'Albert Einstein' his prize.
   execute(<<-SQL)
+  select yr, subject
+  from nobels
+  where winner = 'Albert Einstein'
   SQL
 end
 
