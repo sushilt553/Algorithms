@@ -58,6 +58,12 @@ def heart_tracks
   # the word 'Heart' (albums with no such tracks need not be shown). Order first by
   # the number of such tracks, then by album title.
   execute(<<-SQL)
+  select albums.title, count(*) as number_of_tracks
+  from albums
+  join tracks on tracks.album = albums.asin
+  where tracks.song like '%Heart%'
+  group by albums.title
+  order by number_of_tracks DESC, albums.title
   SQL
 end
 
