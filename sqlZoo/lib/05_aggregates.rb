@@ -39,6 +39,9 @@ end
 def area_count
   # How many countries have an area of more than 1,000,000?
   execute(<<-SQL)
+  select count(*)
+  from countries
+  where area > 1000000
   SQL
 end
 
