@@ -1,4 +1,4 @@
-// function pairSum(arr, k) {
+// function pairSum1(arr, k) {
 //     let hash = {};
 //     let result = [];
 
@@ -21,7 +21,7 @@
 //     return result;
 // }
 
-function pairSum(arr, k) {
+function pairSum2(arr, k) {
     let sortedArr = arr.sort((a, b)=> a - b);
     let result = [];
 
@@ -35,4 +35,33 @@ function pairSum(arr, k) {
     return result;
 }
 
-console.log(pairSum([1,2,3,1,2], 3))
+function pairSum3(arr, k) {
+    let seen = new Set();
+    let pairs = new Set();
+
+    for (let i = 0; i < arr.length; i++) {
+        let rem = k - arr[i];
+        if (seen.has(rem)) {
+            pairs.add([Math.min(rem, arr[i]), Math.max(rem, arr[i])]);
+        }
+
+        seen.add(arr[i]);
+    }
+    return pairs;
+}
+
+// console.log(pairSum1([1,2,-1], 0))
+console.log(pairSum2([1,2,-1], 0))
+console.log(pairSum3([1,2,-1], 0))
+console.log("next")
+// console.log(pairSum1([1,2,-1,-1], 0))
+console.log(pairSum2([1,2,-1,-1], 0))
+console.log(pairSum3([1,2,-1,-1], 0))
+console.log("next")
+// console.log(pairSum1([1,2,-1,-1,-2], 0))
+console.log(pairSum2([1,2,-1,-1,-2], 0))
+console.log(pairSum3([1,2,-1,-1,-2], 0))
+console.log("next")
+// console.log(pairSum1([1,2,-1,-1,-2], -1))
+console.log(pairSum2([1,2,-1,-1,-2], -1))
+console.log(pairSum3([1,2,-1,-1,-2], -1))
