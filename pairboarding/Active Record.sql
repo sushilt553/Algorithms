@@ -3,7 +3,7 @@ SELECT
 FROM 
     users
 
-User.count
+-- User.count
 
 SELECT
     COUNT(*) as total_users
@@ -12,7 +12,7 @@ FROM
 WHERE
     users.active = true
 
-User.where({active: true}).count
+-- User.where({active: true}).count
 
 SELECT
     COUNT(*) as total_users
@@ -21,4 +21,4 @@ FROM
 WHERE
     users.last_login BETWEEN users.start_time and users.end_time
 
-User.where(last_login: (start_time..end_time)).count;
+-- User.where(last_login: (start_time..end_time)).count;
