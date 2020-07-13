@@ -31,8 +31,20 @@ const fastIntersection2 = function(arr1, arr2) {
 }
 
 const fastIntersection3 = function(arr1, arr2) {
-    
+    let set = new Set(arr1);
+    let intersection = [];
+
+    // for (let i = 0; i < arr1.length; i++) {
+    //     set.add(arr1[i]);
+    // }
+
+    for (let i = 0; i < arr2.length; i++) {
+      if (set.has(arr2[i])) intersection.push(arr2[i]);
+    }
+
+    return intersection;
 }
 
 console.log(fastIntersection1([12,11,10,13], [1,2,12,13,10]));
 console.log(fastIntersection2([12,11,10,13], [1,2,12,13,10]));
+console.log(fastIntersection3([12,11,10,13], [1,2,12,13,10,10]));
