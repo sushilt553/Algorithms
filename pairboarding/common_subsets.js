@@ -1,5 +1,18 @@
 function commonSubsets(arr1, arr2) {
     let intersection = fastIntersection(arr1, arr2);
+
+    return subsets(intersection);
+}
+
+function subsets(arr) {
+    if(arr.length === 0) return [[]];
+
+    let first = arr.shift();
+    let subs = subsets(arr);
+
+    let rem = subs.map((ele) => ele.concat([first]));
+
+    return subs.concat(rem);
 }
 
 function fastIntersection(arr1, arr2) {
@@ -12,3 +25,5 @@ function fastIntersection(arr1, arr2) {
 
     return intersection;
 }
+
+console.log(commonSubsets([1,2,3], [1,2]))
