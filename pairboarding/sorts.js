@@ -27,21 +27,20 @@ const sort2 = (arr) => {
 
 function sort3(arr) {
     let alphabet = "abcdefghijklmnopqrstuvwxyz";
-    let sortedArr = [];
 
-    for (let i = 0; i < longestStr(arr); i++) {
+    for (let i = longestStr(arr) - 1; i >= 0; i--) {
         let buckets = new Array(27).fill().map(() => new Array());
         for (let j = 0; j < arr.length; j++) {
             if (i < arr[j].length) {
-                let index = alphabet.indexOf(arr[j][arr[j].length - 1 - i]) + 1;
+                let index = alphabet.indexOf(arr[j][i]) + 1;
                 buckets[index].push(arr[j]);
             }else{
                 buckets[0].push(arr[j]);
             }
         }
-        sortedArr = [].concat(...buckets);
+        arr = [].concat(...buckets);
     }
-    return sortedArr;
+    return arr;
 }
 
 function longestStr(arr) {
@@ -55,6 +54,7 @@ function longestStr(arr) {
     return max;
 }
 
-console.log(sort1([1,3,2,4,7,6,5]));
-console.log(sort2([1,3,2,4,7,6,5]));
-console.log(sort3(["abcd","ef", "ghi"]));
+// console.log(sort1([1,3,2,4,7,6,5]));
+// console.log(sort2([1,3,2,4,7,6,5]));
+// console.log(sort3(["abcd","ef", "ghi"]));
+console.log(sort3(["cat","car", "bat"]));
