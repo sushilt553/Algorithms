@@ -9,7 +9,6 @@ function weightedRandomIndex(arr) {
 
         if (val < cumulativeSum) return i;
     }
-    return cumulativeSum;
 }
 
 console.log(weightedRandomIndex([4,6,8]))
