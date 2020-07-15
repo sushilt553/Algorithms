@@ -1,5 +1,8 @@
-//Algorithm Analysis
-//Asymptotic Notation: Language that allows us to analyze program running time by identifying its behavior as input size for the algorithm increases.
+// Algorithm Analysis
+// Asymptotic Notation: Language that allows us to analyze program running time by identifying its behavior as input size for the algorithm increases.
+// Algorithm factors: 
+    // External Factors: Computer speed, Programming Language, Compiler
+    // Main/Important Factors: Total number of operations, Rate of growth.
 
 function isPrime(num) {
     if (num < 2) return false;
