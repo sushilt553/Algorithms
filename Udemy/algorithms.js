@@ -3,6 +3,14 @@
 // Algorithm factors: 
     // External Factors: Computer speed, Programming Language, Compiler
     // Main/Important Factors: Total number of operations, Rate of growth.
+// Big-O Notation: Worst Case Scenario (Time and Space Complexity)
+    //O(1): Constant time
+    //O(logn): Logarithmic time
+    //O(n): Linear time
+    //O(nlogn): Linear logarithmic
+    //O(n**2), O(n**3): Quadratic time
+    //O(2**n): Exponential time
+    //O(n!): Factorial time
 
 function isPrime(num) {
     if (num < 2) return false;
